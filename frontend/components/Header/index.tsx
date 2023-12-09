@@ -1,10 +1,28 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { scrollSepolia } from "wagmi/chains";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+// import { ConnectButton } from "@rainbow-me/rainbowkit";
+import {
+  EthereumClient,
+  w3mConnectors,
+  w3mProvider,
+} from "@web3modal/ethereum";
+import { Web3Button, Web3Modal } from "@web3modal/react";
+import { useAccount, configureChains, createConfig, WagmiConfig } from "wagmi";
+import { arbitrum, mainnet, polygon } from "wagmi/chains";
 
+const projectId = "02d2c608e74734322e276800f3e43483"; // -----HIDE-----
+const chains = [scrollSepolia]; // -----CHANGE-----
+const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors: w3mConnectors({ projectId, chains }),
+  publicClient,
+});
+const ethereumClient = new EthereumClient(wagmiConfig, chains);
 
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
@@ -40,7 +58,10 @@ const Header = () => {
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:w-1/4">
           <a href="/">
-            <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg" className="h-20" />
+            <img
+              src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg"
+              className="h-20"
+            />
             {/* <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701610799/ETH-India/word-logo_ebygbw.jpg" alt="KeySwap"
             className="h-25" /> */}
             {/* <Image
@@ -159,7 +180,9 @@ const Header = () => {
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
 
-            <ConnectButton />
+            {/* <ConnectButton /> */}
+            <Web3Button />
+            <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
           </div>
         </div>
       </div>
