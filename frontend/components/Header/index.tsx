@@ -40,7 +40,7 @@ const Header = () => {
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:w-1/4">
           <a href="/">
-            <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg" className="h-20" />
+            <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg" className="h-16" />
             {/* <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701610799/ETH-India/word-logo_ebygbw.jpg" alt="KeySwap"
             className="h-25" /> */}
             {/* <Image

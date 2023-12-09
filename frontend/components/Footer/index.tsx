@@ -29,7 +29,7 @@ const Footer = () => {
                 className="animate_top w-1/2 lg:w-1/4"
               >
                 <a href="index.html" className="relative">
-                  <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg" alt="KewSwap" className="" />
+                  <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg" alt="KewSwap" className="h-24" />
                   {/* <Image
                     width={110}
                     height={80}
