@@ -5,6 +5,7 @@ import {
   useContractRead,
   useContractWrite,
   useContractReads,
+  // useSigner,
 } from "wagmi";
 import { SC_ADDRESS } from "../../constants";
 import APIKeyMarketPlace from "../../contracts/APIKeyMarketPlace.json";
@@ -13,6 +14,7 @@ const apiUrl = "https://api.cloudnouns.com/v1/pfp";
 
 function BuyCard({ numberOfOrders }) {
   const { address, isConnecting, isDisconnected } = useAccount();
+  // const { data: signer } = useSigner();
 
   const { data, isError, isLoading } = useContractReads({
     contracts: Array.from({ length: numberOfOrders }, (_, i) => ({
@@ -22,6 +24,8 @@ function BuyCard({ numberOfOrders }) {
       args: [i],
     })),
   });
+
+  // console.log(signer);
 
   console.log(data);
   const [apiData, setApiData] = useState([]);
