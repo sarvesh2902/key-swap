@@ -1,5 +1,5 @@
-import BlogData from "@/components/Blog/apiData";
-import BlogItem from "@/components/Blog/APIItem";
+import BlogData from "@/components/buy/apiData";
+import BlogItem from "@/components/buy/APIItem";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,19 +11,10 @@ export const metadata: Metadata = {
 const BlogPage = async () => {
   return (
     <>
-      {/* <!-- ===== Blog Grid Start ===== --> */}
-      {/* <section className="py-20 lg:py-25 xl:py-30">
-        <div className="mx-auto mt-15 max-w-c-1280 px-4 md:px-8 xl:mt-20 xl:px-0">
-          <div className="grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-            {BlogData.map((post, key) => (
-              <BlogItem key={key} blog={post} />
-            ))}
-          </div>
-        </div>
-      </section> */}
-      {/* <!-- ===== Blog Grid End ===== --> */}
 
-      <section className="body-font ml-50 mt-20 items-center overflow-hidden text-gray-600">
+
+{/* SEARCH INPUT */}
+      <section className="body-font ml-50 mt-24 items-center overflow-hidden text-gray-600">
         {/* search bar */}
         <div className="mb-2  text-sm font-medium text-gray-900 sr-only dark:text-white"></div>
         <div className="relative mt-10 w-4/5">
@@ -56,14 +47,18 @@ const BlogPage = async () => {
             Search
           </button>
         </div>
-        <div className="container mx-auto px-5 py-16">
-          <div className="-my-8 divide-y-2 divide-gray-100">
-            {/* <BlogItem/> */}
-            {BlogData.map((post, key) => (
+      </section>
+
+{/* API listing */}
+      <section className="text-gray-600 body-font">
+  <div className="container px-5 py-24 mx-auto">
+    <div className="flex flex-wrap -m-4">
+    {BlogData.map((post, key) => (
               <BlogItem key={key} blog={post} />
             ))}
-          </div>
-        </div>
+    
+      </div>
+      </div>
       </section>
     </>
   );

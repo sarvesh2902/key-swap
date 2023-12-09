@@ -60,7 +60,7 @@ const Header = () => {
           <a href="/">
             <img
               src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg"
-              className="h-20"
+              className="h-16"
             />
             {/* <img src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701610799/ETH-India/word-logo_ebygbw.jpg" alt="KeySwap"
             className="h-25" /> */}

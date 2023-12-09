@@ -18,7 +18,7 @@ const BuyComponent = () => {
 
   if (isDisconnected || isConnecting)
     return (
-      <div>
+      <div className="items-center overflow-hidden body-font ml-50 mt-20 mb-40 text-gray-600">
         <WalletNotConnected />
       </div>
     );
