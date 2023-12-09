@@ -1,5 +1,5 @@
 import React from "react";
-// import XmtpHome from "./XmtpHome"; // Importing the XmtpHome component, assuming it's in the same directory
+import XmtpHome from "./XmtpHome"; // Importing the XmtpHome component, assuming it's in the same directory
 import { SC_ADDRESS } from "../constants";
 import APIKeyMarketPlace from "../contracts/APIKeyMarketPlace.json";
 import { useAccount, useContractRead, useContractWrite } from "wagmi";
