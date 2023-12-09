@@ -2,12 +2,17 @@ import { Client } from "@xmtp/xmtp-js";
 
 import React, { useEffect, useState, useRef } from "react";
 import Chat from "./XmtpChat";
-import useEthersWalletClient from "../hooks/useEthersWalletClient";
+import  useEthersWalletClient  from "../hooks/useEthersWalletClient";
 import WalletNotConnected from "./WalletNotConnected";
 
 //import { DynamicWidget, useDynamicContext } from "@dynamic-labs/sdk-react-core";
 
-export default function Home({ PEER_ADDRESS }) {
+
+
+
+
+export default function Home({PEER_ADDRESS}) {
+
   const { data, isLoading } = useEthersWalletClient();
 
   //const PEER_ADDRESS = "0x6ea5CB879208496D27aCfc6319eCD3Dad31fd717";
@@ -15,9 +20,9 @@ export default function Home({ PEER_ADDRESS }) {
   const [messages, setMessages] = useState(null);
   const convRef = useRef(null);
   const clientRef = useRef(null);
-  console.log(data);
+  console.log(data)
   const { account } = data;
-  const signer = data;
+  const signer = data
 
   const isConnected = !!account;
 
@@ -33,8 +38,9 @@ export default function Home({ PEER_ADDRESS }) {
   const newConversation = async function (xmtp_client, addressTo) {
     //Creates a new conversation with the address
     if (await xmtp_client?.canMessage(PEER_ADDRESS)) {
-      const conversation =
-        await xmtp_client.conversations.newConversation(addressTo);
+      const conversation = await xmtp_client.conversations.newConversation(
+        addressTo
+      );
       convRef.current = conversation;
       //Loads the messages of the conversation
       const messages = await conversation.messages();
@@ -47,12 +53,9 @@ export default function Home({ PEER_ADDRESS }) {
 
   // Function to initialize the XMTP client
   const initXmtp = async function () {
-    console.log("init xmtp client")
     // Create the XMTP client
     const xmtp = await Client.create(signer, { env: "production" });
     //Create or load conversation with Gm bot
-
-    console.log(xmtp)
     newConversation(xmtp, PEER_ADDRESS);
     // Set the XMTP client in state for later use
     setIsOnNetwork(!!xmtp.address);
@@ -70,7 +73,6 @@ export default function Home({ PEER_ADDRESS }) {
           if (!exists) {
             setMessages((prevMessages) => {
               const msgsnew = [...prevMessages, msg];
-              console.log(msgsnew)
               return msgsnew;
             });
           }
@@ -81,34 +83,34 @@ export default function Home({ PEER_ADDRESS }) {
   }, [messages, isOnNetwork]);
 
   return (
-    <div>
+    <div >
       {/* Display the ConnectWallet component if not connected */}
       {!isConnected && (
-        <div>
-          <WalletNotConnected />
-          {/*<DynamicWidget />*/}
+        <div >
+          <WalletNotConnected/>
+          { /*<DynamicWidget />*/}
         </div>
       )}
       {/* Display XMTP connection options if connected but not initialized */}
       {isConnected && !isOnNetwork && (
-        <div>
+        <div >
           {/* <DynamicWidget /> */}
           <button
             onClick={initXmtp}
-            className="rounded-full bg-gray-800 px-6 py-2 text-black shadow-md transition duration-300 ease-in-out hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
-          >
+            className="bg-gray-800 text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+        >
             Connect to XMTP to Chat!
-          </button>
+        </button>
         </div>
       )}
       {/* Render the Chat component if connected, initialized, and messages exist */}
       {isConnected && isOnNetwork && messages && (
         <div className="text-black">
-          <Chat
-            client={clientRef.current}
-            conversation={convRef.current}
-            messageHistory={messages}
-          />
+        <Chat
+          client={clientRef.current}
+          conversation={convRef.current}
+          messageHistory={messages}
+        />
         </div>
       )}
     </div>
