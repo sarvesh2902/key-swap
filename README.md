@@ -6,7 +6,7 @@
 </p>
 
 
-KeySwap is a decentralized API key marketplace built on Ethereum, allowing sellers to rent out API keys and buyers to purchase them hassle-free using cryptocurrency.
+KeySwap is efficiently enabling Crypto Payments for Web APIs. Fundamentally, it is a decentralized API key marketplace built on Ethereum, allowing sellers to rent out API keys and buyers to purchase them hassle-free using cryptocurrency.
 
 ## Table of Contents
 
