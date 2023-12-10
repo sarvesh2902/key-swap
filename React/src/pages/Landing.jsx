@@ -17,6 +17,7 @@ function Landing() {
         <div className="w-2/3 p-4 pl-16 ml-16 flex flex-col items-center justify-center">
           <div className="mb-4">
           <h2 className="text-8xl text-black font-semibold mb-4">
+          
   <span
     style={{
       display: 'inline-block',
@@ -24,6 +25,7 @@ function Landing() {
       overflow: 'hidden',
     }}
   >
+
     <Typewriter
       options={{
         strings: ['Enabling Crypto Payments\n for Web APIs'],
@@ -57,10 +59,15 @@ function Landing() {
                         </div>
                       </div>
 
+
         {/* Right Side: Flickering Image (1/3) */}
         <div className="w-1/3 flex items-center justify-center ml-4">
           <div className="mt-8">
             {/* <FlickeringImage imageUrl={apiUrl} /> */}
+            {/* <video className="h-full w-full rounded-lg" controls>
+      <source src="https://res.cloudinary.com/dbqqvw3gf/video/upload/v1702135548/KeySwap_whumnw.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video> */}
           </div>
         </div>
       </div>

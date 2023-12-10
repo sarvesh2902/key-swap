@@ -25,11 +25,16 @@ function Navbar({wagmiConfig, ethereumClient, projectId, apiUrl}) {
     <>
       <div className="p-4 flex justify-between items-center bg-white">
         {/* Left Side */}
-        <ul className="flex space-x-4 list-none">
+        <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
           <li>
-            <a href="/" className="mb-5 text-black text-xl font-bold hover:text-gray-400 px-4 py-2">KEY SWAP</a>
+             <a href="/" className="mt-2">
+             <img
+              src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1701611498/ETH-India/word-logo1_humlnj.jpg"
+              className="h-16"
+            /></a> 
+           
           </li>
-          <li>
+          <li className='flex cursor-pointer items-center justify-between gap-3 hover:text-blue-700'>
             <a href="/buy" className="text-black text-lg hover:text-gray-400 px-3 py-2" style={pixelFontStyle}>Buy</a>
           </li>
           <li>
