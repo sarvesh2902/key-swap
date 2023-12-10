@@ -10,6 +10,8 @@ function Landing() {
   const pixelFontStyle = {
     fontFamily: 'Public Pixel',
   };
+
+  
   return (
     <>
       <div className="flex h-screen">
@@ -68,6 +70,13 @@ function Landing() {
       <source src="https://res.cloudinary.com/dbqqvw3gf/video/upload/v1702135548/KeySwap_whumnw.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video> */}
+    <div>
+      <img
+        src="https://res.cloudinary.com/dbqqvw3gf/image/upload/v1702175578/Untitled_design_2_q0u3ah.png"
+        alt="Your Alt Text"
+        style={{ width: '100%', height: 'auto' }}
+      />
+    </div>
           </div>
         </div>
       </div>
